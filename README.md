@@ -19,6 +19,10 @@ A identidade visual byescaleira: os tokens em JSON, a documentação e as instru
 
 O detalhe de cada regra está em [skills/byescaleira-visual-id/reference/](skills/byescaleira-visual-id/reference/principios.md).
 
+## No site
+
+Em [design.byescaleira.com](https://design.byescaleira.com) estão a apresentação, a [documentação](https://design.byescaleira.com/doc) em formato de livro, a [API](https://design.byescaleira.com/doc/api) (os tokens resolvidos para o tema, o produto e a data especial, em JSON e em CSS) e o botão **Adicionar ao Claude**.
+
 ## Com o Claude Code
 
 A skill `byescaleira-visual-id` ensina o Claude a aplicar a identidade. Instale uma vez:
@@ -40,6 +44,10 @@ Para deixar a skill ligada num projeto (para todo mundo que abrir o repositório
   "enabledPlugins": { "byescaleira-visual-id@byescaleira-visual-id": true }
 }
 ```
+
+**No claude.ai e no app do Claude:** baixe a skill em [design.byescaleira.com/skill.zip](https://design.byescaleira.com/skill.zip) e envie em Customize, Skills.
+
+**O conector** (MCP, só leitura, sem login): `https://design.byescaleira.com/mcp`. No claude.ai, em Customize, Connectors, Add custom connector; no Claude Code, `claude mcp add --transport http byescaleira-design https://design.byescaleira.com/mcp`.
 
 **Outros agentes** (Codex, Cursor, Gemini…): aponte para [AGENTS.md](AGENTS.md), que leva à mesma skill.
 
@@ -86,6 +94,9 @@ Veja [marca.md](skills/byescaleira-visual-id/reference/marca.md) para criar um p
 | `web/` | Gerado: as variáveis CSS e o tema do Tailwind |
 | `skills/byescaleira-visual-id/` | A skill: `SKILL.md` (as instruções para o agente) e `reference/` (a documentação completa) |
 | `products/` | Os produtos: nome, símbolo, cores de dado |
+| `service/` | O serviço de [design.byescaleira.com](https://design.byescaleira.com): apresentação, documentação, API, conector MCP e a skill em .zip |
+| `docs/` | As páginas da documentação que são só do serviço (instalar, API, conector, implantação) |
+| `deploy/` | Dockerfile, compose e o bloco do Caddy da VPS |
 | `.claude-plugin/` | O plugin e o marketplace do Claude Code |
 
 ## Mudar a identidade

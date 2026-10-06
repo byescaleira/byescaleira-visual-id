@@ -15,3 +15,20 @@ jobs:
           node-version: 22
       # Os arquivos gerados estão em dia com tokens/tokens.json e todo texto passa 4,5:1 de contraste.
       - run: node scripts/build.mjs --check
+
+  service:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: service
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: service/package-lock.json
+      - run: npm ci
+      - run: npm run typecheck
+      # A API, o conector, as datas, os links da documentação e a skill.zip.
+      - run: npm test

@@ -3,6 +3,8 @@
  * Preto e branco. A cor só aparece quando informa: sinais (warn, danger, ok) e cores de dado, nunca decoração.
  * Interação é tinta: accent, focus e on-accent apontam para ink e paper.
  * Tema: segue prefers-color-scheme; data-theme="light" ou "dark" na raiz força um deles.
+ * Alto contraste: segue prefers-contrast: more; data-contrast="more" na raiz força.
+ * Data especial: data-season="<id>" na raiz define --season (o fio de 3px no topo e o ponto ao lado do nome da data).
  */
 :root {
   --paper: #ffffff;
@@ -67,6 +69,9 @@
   --index-width: clamp(340px, 26vw, 540px);
   --topbar-height: 52px;
   --gutter-mobile: 16px;
+  --doc-nav-width: 264px;
+  --doc-toc-width: 232px;
+  --doc-max-width: 1480px;
 
   color-scheme: light;
 }
@@ -107,4 +112,54 @@
   --ok: #4fbf7f;
   --ok-wash: #0d2318;
   color-scheme: dark;
+}
+
+/* Alto contraste: os cinzas de texto e os fios viram tinta. :root:root empata com as regras do escuro e, por vir
+ * depois delas, vence: sem isso, o alto contraste não valeria no tema escuro. */
+@media (prefers-contrast: more) {
+  :root:root {
+    --ink-muted: var(--ink);
+    --ink-faint: var(--ink);
+    --rule: var(--ink);
+    --rule-strong: var(--ink);
+  }
+}
+
+:root[data-contrast="more"] {
+  --ink-muted: var(--ink);
+  --ink-faint: var(--ink);
+  --rule: var(--ink);
+  --rule-strong: var(--ink);
+}
+
+/* Datas especiais. A cor da data informa a data: um fio de 3px no topo da página e um ponto de 8px com o nome da data na barra do topo. Nada mais muda: o fundo continua paper, a interação continua ink, o símbolo e o destaque não mudam. A data some sozinha quando o período acaba. No alto contraste, a data não aparece: --season não é definida. */
+@media not (prefers-contrast: more) {
+  :root:not([data-contrast="more"])[data-season="ano-novo"] { --season: #8a6700; }
+  :root:not([data-contrast="more"])[data-season="carnaval"] { --season: #b0127a; }
+  :root:not([data-contrast="more"])[data-season="pascoa"] { --season: #6a3fb5; }
+  :root:not([data-contrast="more"])[data-season="festa-junina"] { --season: #c0470c; }
+  :root:not([data-contrast="more"])[data-season="dia-da-advocacia"] { --season: #8c1d40; }
+  :root:not([data-contrast="more"])[data-season="independencia"] { --season: #00843d; }
+  :root:not([data-contrast="more"])[data-season="dia-das-criancas"] { --season: #00838f; }
+  :root:not([data-contrast="more"])[data-season="natal"] { --season: #c41e3a; }
+
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="ano-novo"] { --season: #e8c252; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="carnaval"] { --season: #ff6ec7; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="pascoa"] { --season: #b79cff; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="festa-junina"] { --season: #ff9a5c; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="dia-da-advocacia"] { --season: #ff8fb0; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="independencia"] { --season: #3ddc84; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="dia-das-criancas"] { --season: #4dd0e1; }
+  :root:not([data-contrast="more"])[data-theme="dark"][data-season="natal"] { --season: #ff6b7f; }
+}
+
+@media (prefers-color-scheme: dark) and (not (prefers-contrast: more)) {
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="ano-novo"] { --season: #e8c252; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="carnaval"] { --season: #ff6ec7; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="pascoa"] { --season: #b79cff; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="festa-junina"] { --season: #ff9a5c; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="dia-da-advocacia"] { --season: #ff8fb0; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="independencia"] { --season: #3ddc84; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="dia-das-criancas"] { --season: #4dd0e1; }
+  :root:not([data-contrast="more"]):not([data-theme="light"])[data-season="natal"] { --season: #ff6b7f; }
 }

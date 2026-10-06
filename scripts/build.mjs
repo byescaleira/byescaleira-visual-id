@@ -48,6 +48,16 @@ const contrast = (a, b) => {
   return (x + 0.05) / (y + 0.05);
 };
 const contrastProblems = [];
+const seasons = tokens.seasons.list;
+const highContrast = tokens.color.highContrast.aliases;
+for (const [name, alias] of Object.entries(highContrast)) {
+  if (!byName.has(name) || !byName.has(alias)) contrastProblems.push(`highContrast: cor desconhecida em ${name} -> ${alias}`);
+}
+const monthDay = /^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$/;
+for (const s of seasons) {
+  const dates = s.easter ? Array.isArray(s.easter) && s.easter.length === 2 && s.easter[0] <= s.easter[1] : monthDay.test(s.from) && monthDay.test(s.to);
+  if (!dates) contrastProblems.push(`Data especial ${s.id}: período inválido (${tokens.seasons.when})`);
+}
 for (const theme of tokens.color.themes) {
   // Texto que precisa de 4,5:1: os tons de tinta sobre papel e os sinais sobre papel e sobre o próprio fundo.
   const pairs = [
@@ -67,6 +77,11 @@ for (const theme of tokens.color.themes) {
     const ratio = contrast(resolve(fg, theme), resolve(bg, theme));
     if (ratio < 4.5) contrastProblems.push(`${fg} sobre ${bg} (${theme}): ${ratio.toFixed(2)}:1, mínimo 4,5:1`);
   }
+  // A cor da data é marca, não texto, mas exige o mesmo 4,5:1 para nunca ficar fraca sobre o papel.
+  for (const s of seasons) {
+    const ratio = contrast(s[theme], resolve("paper", theme));
+    if (ratio < 4.5) contrastProblems.push(`data ${s.id} sobre paper (${theme}): ${ratio.toFixed(2)}:1, mínimo 4,5:1`);
+  }
 }
 
 // ---------- Tipografia ----------
@@ -78,6 +93,9 @@ const fluid = (s) => (s.fluid ? `clamp(${rem(s.min)}, ${s.fluid}, ${rem(s.size)}
 
 // ---------- web/tokens.css ----------
 
+const noHc = ':root:not([data-contrast="more"])';
+const hcVars = (indent) => Object.entries(highContrast).map(([n, a]) => `${indent}--${n}: var(--${a});`).join("\n");
+
 function css() {
   const themeVars = (theme) => solid.map((c) => `  --${c.name}: ${c[theme]};`).join("\n");
   const changesInDark = solid.filter((c) => c.light !== c.dark);
@@ -88,6 +106,8 @@ function css() {
     " * Preto e branco. A cor só aparece quando informa: sinais (warn, danger, ok) e cores de dado, nunca decoração.",
     " * Interação é tinta: accent, focus e on-accent apontam para ink e paper.",
     " * Tema: segue prefers-color-scheme; data-theme=\"light\" ou \"dark\" na raiz força um deles.",
+    " * Alto contraste: segue prefers-contrast: more; data-contrast=\"more\" na raiz força.",
+    " * Data especial: data-season=\"<id>\" na raiz define --season (o fio de 3px no topo e o ponto ao lado do nome da data).",
     " */",
     ":root {",
     themeVars("light"),
@@ -123,6 +143,29 @@ function css() {
     "  color-scheme: dark;",
     "}",
     "",
+    "/* Alto contraste: os cinzas de texto e os fios viram tinta. :root:root empata com as regras do escuro e, por vir",
+    " * depois delas, vence: sem isso, o alto contraste não valeria no tema escuro. */",
+    "@media (prefers-contrast: more) {",
+    "  :root:root {",
+    hcVars("    "),
+    "  }",
+    "}",
+    "",
+    ":root[data-contrast=\"more\"] {",
+    hcVars("  "),
+    "}",
+    "",
+    `/* ${tokens.seasons.usage} No alto contraste, a data não aparece: --season não é definida. */`,
+    "@media not (prefers-contrast: more) {",
+    seasons.map((s) => `  ${noHc}[data-season="${s.id}"] { --season: ${s.light}; }`).join("\n"),
+    "",
+    seasons.map((s) => `  ${noHc}[data-theme="dark"][data-season="${s.id}"] { --season: ${s.dark}; }`).join("\n"),
+    "}",
+    "",
+    "@media (prefers-color-scheme: dark) and (not (prefers-contrast: more)) {",
+    seasons.map((s) => `  ${noHc}:not([data-theme="light"])[data-season="${s.id}"] { --season: ${s.dark}; }`).join("\n"),
+    "}",
+    "",
   ];
   return lines.join("\n");
 }
@@ -139,6 +182,7 @@ function tailwind() {
     "@theme inline {",
     "  --color-*: initial;",
     allColors.map((n) => `  --color-${n}: var(--${n});`).join("\n"),
+    "  --color-season: var(--season);",
     "  --color-transparent: transparent;",
     "  --color-current: currentColor;",
     "",
@@ -209,6 +253,32 @@ function reference() {
     row(["Par", "Claro", "Escuro"]),
     row(["---", "---", "---"]),
     ...contrastRows,
+    "",
+    "### Alto contraste",
+    "",
+    `${tokens.color.highContrast.usage} Na web, \`prefers-contrast: more\` ou \`data-contrast="more"\` na raiz.`,
+    "",
+    row(["Token", "Vira"]),
+    row(["---", "---"]),
+    ...Object.entries(highContrast).map(([n, a]) => row([`\`${n}\``, `\`${a}\``])),
+    "",
+    "### Datas especiais",
+    "",
+    `${tokens.seasons.usage} Fuso: \`${tokens.seasons.timezone}\`. Na web, \`data-season="<id>"\` na raiz define \`--season\`. As regras estão em [datas.md](datas.md).`,
+    "",
+    row(["Id", "Nome", "Período", "Claro", "Escuro", "Contraste (claro, escuro)", "Nota"]),
+    row(["---", "---", "---", "---", "---", "---", "---"]),
+    ...seasons.map((s) =>
+      row([
+        `\`${s.id}\``,
+        s.name,
+        s.easter ? `Páscoa ${s.easter.map((d) => (d > 0 ? `+${d}` : `${d}`)).join(" a ")} dias` : s.from === s.to ? s.from.split("-").reverse().join("/") : `${s.from.split("-").reverse().join("/")} a ${s.to.split("-").reverse().join("/")}`,
+        `\`${s.light}\``,
+        `\`${s.dark}\``,
+        `${contrast(s.light, resolve("paper", "light")).toFixed(1).replace(".", ",")}:1, ${contrast(s.dark, resolve("paper", "dark")).toFixed(1).replace(".", ",")}:1`,
+        s.usage,
+      ]),
+    ),
     "",
     "## Tipografia",
     "",

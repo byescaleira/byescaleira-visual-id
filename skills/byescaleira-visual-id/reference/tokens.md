@@ -41,6 +41,32 @@ Cada cor tem o valor do tema claro e do escuro. O escuro é o mesmo sistema inve
 | `danger` sobre `paper` | 6,5:1 | 8,2:1 |
 | `ok` sobre `paper` | 5,4:1 | 9,1:1 |
 
+### Alto contraste
+
+Alto contraste do sistema (prefers-contrast: more, "Aumentar contraste" da Apple, texto em alto contraste do Android, temas de contraste do Windows). Os cinzas de texto e os fios viram ink; o resto não muda. Na web, `prefers-contrast: more` ou `data-contrast="more"` na raiz.
+
+| Token | Vira |
+| --- | --- |
+| `ink-muted` | `ink` |
+| `ink-faint` | `ink` |
+| `rule` | `ink` |
+| `rule-strong` | `ink` |
+
+### Datas especiais
+
+Datas especiais. A cor da data informa a data: um fio de 3px no topo da página e um ponto de 8px com o nome da data na barra do topo. Nada mais muda: o fundo continua paper, a interação continua ink, o símbolo e o destaque não mudam. A data some sozinha quando o período acaba. Fuso: `America/Sao_Paulo`. Na web, `data-season="<id>"` na raiz define `--season`. As regras estão em [datas.md](datas.md).
+
+| Id | Nome | Período | Claro | Escuro | Contraste (claro, escuro) | Nota |
+| --- | --- | --- | --- | --- | --- | --- |
+| `ano-novo` | Ano-novo | 26/12 a 06/01 | `#8a6700` | `#e8c252` | 5,2:1, 12,3:1 | Dourado, da virada do ano. |
+| `carnaval` | Carnaval | Páscoa -50 a -46 dias | `#b0127a` | `#ff6ec7` | 6,5:1, 8,3:1 | Do sábado à Quarta-feira de Cinzas. |
+| `pascoa` | Páscoa | Páscoa -2 a 0 dias | `#6a3fb5` | `#b79cff` | 7,0:1, 9,2:1 | Da Sexta-feira Santa ao domingo de Páscoa. |
+| `festa-junina` | Festa junina | 01/06 a 30/06 | `#c0470c` | `#ff9a5c` | 5,1:1, 10,0:1 | O mês de junho. |
+| `dia-da-advocacia` | Dia da Advocacia | 11/08 | `#8c1d40` | `#ff8fb0` | 8,9:1, 9,8:1 | 11 de agosto, data dos cursos jurídicos no Brasil. |
+| `independencia` | Independência | 07/09 | `#00843d` | `#3ddc84` | 4,8:1, 11,8:1 | 7 de setembro. |
+| `dia-das-criancas` | Dia das Crianças | 12/10 | `#00838f` | `#4dd0e1` | 4,5:1, 11,4:1 | 12 de outubro. |
+| `natal` | Natal | 01/12 a 25/12 | `#c41e3a` | `#ff6b7f` | 5,8:1, 7,7:1 | De 1º a 25 de dezembro. |
+
 ## Tipografia
 
 - **Schibsted Grotesk** (`sans`): Toda a interface: títulos, navegação, botões, números. SIL Open Font License 1.1; Google Fonts `Schibsted Grotesk`, npm `@fontsource-variable/schibsted-grotesk`.
@@ -115,3 +141,6 @@ Tamanhos em px (web, Android em sp, Windows em epx) e em pt (Apple: 1pt = 1px de
 | `index-width` | `clamp(340px, 26vw, 540px)` | Coluna de lista ao lado da leitura: cresce com a janela. |
 | `topbar-height` | `52px` | Altura mínima da barra do topo na web. |
 | `gutter-mobile` | `16px` | Margem lateral no celular. |
+| `doc-nav-width` | `264px` | Documentação em livro: a coluna do menu de páginas, à esquerda. |
+| `doc-toc-width` | `232px` | Documentação em livro: a coluna "Nesta página", à direita. Some abaixo de 1180px. |
+| `doc-max-width` | `1480px` | Documentação em livro: a largura máxima das três colunas juntas. |

@@ -1,0 +1,9 @@
+# Contexto do build da imagem (deploy/docker-compose.prod.yml usa a raiz do repo).
+.git
+.github
+.claude
+**/node_modules
+**/.env
+**/.env.*
+!**/.env.example
+deploy/.env

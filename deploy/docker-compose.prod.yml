@@ -1,0 +1,30 @@
+# design.byescaleira.com em produção. Público na internet, sem VPN: o Caddy do servidor repassa o domínio para
+# este container pela rede vpn_services, sem porta publicada no host (docs/implantacao.md).
+# Build: docker compose -f deploy/docker-compose.prod.yml --env-file deploy/.env up -d --build
+
+name: design
+
+services:
+  design:
+    build:
+      context: ..
+      dockerfile: deploy/Dockerfile
+    image: byescaleira/design:latest
+    container_name: design-byescaleira
+    restart: unless-stopped
+    env_file: ../deploy/.env
+    environment:
+      HOST: 0.0.0.0
+      PORT: 4200
+      NODE_ENV: production
+    read_only: true
+    tmpfs:
+      - /tmp
+    networks:
+      vpn_services:
+        # Confira se o endereço está livre na rede (o CLIO usa 10.99.0.20).
+        ipv4_address: 10.99.0.30
+
+networks:
+  vpn_services:
+    external: true

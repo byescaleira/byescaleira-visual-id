@@ -7,6 +7,7 @@ Projeto nenhum define cor, raio, sombra, fonte, espaço ou componente próprio. 
 - **Falta um token:** por exemplo, um sinal novo com um significado que nenhum dos três cobre. Antes, confira se não é o caso de usar um que já existe.
 - **Falta um componente ou um padrão:** um controle que a tela precisa e que não está em [componentes.md](componentes.md).
 - **Um produto novo** (veja [Marca e produtos](marca.md)).
+- **Uma data especial nova** (veja [Datas especiais](datas.md)).
 
 Gosto não é motivo. "Ficaria mais bonito com azul" não é.
 
@@ -18,6 +19,7 @@ Gosto não é motivo. "Ficaria mais bonito com azul" não é.
 4. **Rode `node scripts/build.mjs --check`.** O CI roda o mesmo.
 5. **Abra um pull request** descrevendo o motivo: a tela que precisou e por que nada do que existe serviu.
 6. **Ao publicar,** crie a tag da versão (`v1.1.0`). Os projetos atualizam o endereço do pacote para a tag nova.
+7. **Atualize o site** `design.byescaleira.com` (a documentação, a API e o conector) construindo a imagem de novo no servidor. O passo a passo está em `docs/implantacao.md`.
 
 ## Versões
 

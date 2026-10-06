@@ -44,6 +44,9 @@ body {
 ```
 
 - **Tema:** segue `prefers-color-scheme`. Para forçar um, use `data-theme="light"` ou `"dark"` no `<html>`.
+- **Alto contraste:** segue `prefers-contrast: more`. Para forçar, use `data-contrast="more"` no `<html>`.
+- **Data especial:** `data-season="<id>"` no `<html>` liga `--season`, só para o fio do topo e o ponto com o nome da data ([datas.md](datas.md)).
+- **Pela API, sem npm:** `https://design.byescaleira.com/api/v1/tokens.css` é o mesmo arquivo. Para um tema fixo, já resolvido, use `/api/v1/themes/<tema>.css`.
 - **Espaço, raio e fio:** só as variáveis (`var(--space-4)`, `var(--radius-row)`, `1px solid var(--rule)`). Um número solto no CSS do projeto é erro, com duas exceções: 0 e os 2px do anel de foco.
 - **Números em coluna:** `font-variant-numeric: tabular-nums`.
 - **Menos movimento:** com `@media (prefers-reduced-motion: reduce)`, as transições viram troca direta.

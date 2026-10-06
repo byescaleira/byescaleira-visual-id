@@ -29,11 +29,19 @@ São as cores que vêm do conteúdo, não do design: a cor de uma pessoa ou de u
 - **Nunca como fundo, texto ou botão.**
 - **A paleta é do produto,** não do design system: cada produto declara a sua no arquivo dele em `products/` (veja [Marca](marca.md)).
 
+## Datas especiais
+
+A cor da data (Natal, Carnaval…) segue a mesma ideia da cor de dado: marca pequena, com o nome ao lado.
+- **Onde aparece:** só no fio de 3px no topo da página e no ponto de 8px com o nome da data, na barra do topo.
+- **Nunca** como fundo, texto, botão, seleção ou foco.
+- **Contraste:** 4,5:1 sobre `paper` nos dois temas, conferido no build.
+- **As regras completas** estão em [Datas especiais](datas.md).
+
 ## Temas
 
 - **Claro e escuro são o mesmo sistema invertido.** `paper` e `ink` trocam de lugar, os cinzas se ajustam e os sinais clareiam para manter o contraste.
 - **O tema segue o sistema.** Uma opção manual (claro, escuro ou automático) só existe se o produto precisar. Na web, `data-theme="light"` ou `"dark"` na raiz força um tema.
-- **Alto contraste do sistema** (Windows, "Aumentar contraste" da Apple, "texto em alto contraste" do Android): siga o sistema. Os fios viram `ink` e os cinzas de texto viram `ink`.
+- **Alto contraste do sistema** (Windows, "Aumentar contraste" da Apple, "texto em alto contraste" do Android): siga o sistema. Os fios viram `ink` e os cinzas de texto viram `ink` (`highContrast` no `tokens.json`). Na web, o `tokens.css` faz isso com `prefers-contrast: more`, e `data-contrast="more"` na raiz força.
 
 ## Contraste
 

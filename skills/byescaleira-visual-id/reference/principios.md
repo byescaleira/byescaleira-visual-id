@@ -21,7 +21,7 @@ Uma seleção é sempre a linha **invertida**, em tinta cheia. Nas plataformas q
 
 ## 3. A cor informa, nunca decora
 
-A cor só aparece em dois casos.
+A cor só aparece em três casos.
 
 **Sinais:**
 - `warn` (âmbar) para dúvida e atenção;
@@ -29,6 +29,8 @@ A cor só aparece em dois casos.
 - `ok` (verde) para feito, salvo ou "já existe".
 
 **Cores de dado:** a cor que vem do próprio dado, como a cor de uma pessoa numa agenda ou a de uma categoria escolhida pelo usuário. Ela aparece só como marca pequena (um fio de 3px ou um ponto de 8px) e sempre com o nome ao lado. Nunca é o único jeito de saber a informação.
+
+**Datas especiais:** a cor da data informa a data (Natal, Carnaval, Festa junina…). Ela aparece só no fio de 3px no topo e no ponto de 8px com o nome da data, durante o período, e some sozinha. Veja [Datas especiais](datas.md).
 
 Fora isso não existe cor. Isso vale para gradiente, bloco de cor cheio, ícone colorido, ilustração colorida, fundo de marca e foto como decoração.
 

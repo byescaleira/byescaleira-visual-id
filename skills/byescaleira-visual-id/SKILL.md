@@ -9,9 +9,10 @@ Você vai aplicar uma identidade visual fixa. Ela não é ponto de partida para 
 
 ## A fonte da verdade
 
-- **Tokens:** `${CLAUDE_PLUGIN_ROOT}/tokens/tokens.json`, com todas as cores (claro e escuro), a tipografia, o espaço, o raio, o fio, a sombra, o movimento e o layout, cada um com a nota de uso. A mesma coisa, em tabelas: [reference/tokens.md](reference/tokens.md).
+- **Tokens:** `${CLAUDE_PLUGIN_ROOT}/tokens/tokens.json`, com todas as cores (claro, escuro e alto contraste), as datas especiais, a tipografia, o espaço, o raio, o fio, a sombra, o movimento e o layout, cada um com a nota de uso. A mesma coisa, em tabelas: [reference/tokens.md](reference/tokens.md).
 - **Web:** `${CLAUDE_PLUGIN_ROOT}/web/tokens.css` (variáveis CSS) e `${CLAUDE_PLUGIN_ROOT}/web/tailwind.css` (Tailwind v4), gerados do JSON.
 - **Produtos:** `${CLAUDE_PLUGIN_ROOT}/products/<produto>/<produto>.json`, com o nome, o símbolo, a paleta de cores de dado e o formato do destaque. Hoje existe `clio`.
+- **Skill avulsa** (enviada ao claude.ai, sem o plugin): os mesmos arquivos estão em `assets/` desta skill (`assets/tokens.json`, `assets/tokens.css`, `assets/products/`). Com o conector `byescaleira-design` ou a API (`https://design.byescaleira.com/api/v1`), pegue os valores de lá.
 
 **Nunca escreva um valor de memória ou "parecido".** Leia o JSON e use o valor exato ou a variável. Nunca edite os arquivos gerados.
 
@@ -21,7 +22,8 @@ Você vai aplicar uma identidade visual fixa. Ela não é ponto de partida para 
 2. **Interação é tinta.** O botão principal, a seleção, o filtro e a aba ativos e o foco ficam em `ink` com texto em `paper`. Não existe cor de marca. A cor de destaque da plataforma (AccentColor, `primary`, `SystemAccentColor`) é `ink`.
 3. **A cor só informa:**
    - **sinais:** `warn` (atenção), `danger` (erro), `ok` (feito), sempre com palavras;
-   - **cores de dado:** a cor que vem do conteúdo, só como fio de 3px ou ponto de 8px, sempre com o nome ao lado.
+   - **cores de dado:** a cor que vem do conteúdo, só como fio de 3px ou ponto de 8px, sempre com o nome ao lado;
+   - **datas especiais:** a cor da data (Natal, Carnaval…), só no fio de 3px no topo e no ponto com o nome da data na barra do topo. A interação continua tinta ([datas.md](reference/datas.md)).
 
    Nunca use gradiente, bloco de cor, ícone colorido, emoji ou foto decorativa.
 4. **Fios, não caixas.** Separe com fio de 1px (`rule`). Nada de cartão com sombra, borda grossa ou superfície de outro tom. Só o que flutua tem sombra ou material.

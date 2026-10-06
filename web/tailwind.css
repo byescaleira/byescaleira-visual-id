@@ -23,6 +23,7 @@
   --color-accent-wash: var(--accent-wash);
   --color-on-accent: var(--on-accent);
   --color-focus: var(--focus);
+  --color-season: var(--season);
   --color-transparent: transparent;
   --color-current: currentColor;
 

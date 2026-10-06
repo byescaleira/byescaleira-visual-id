@@ -1,0 +1,21 @@
+# design.byescaleira.com: tudo vai para o container design-byescaleira (deploy/docker-compose.prod.yml).
+# Público, sem VPN. Junte este bloco ao Caddyfile do servidor e recarregue o Caddy.
+
+design.byescaleira.com {
+	reverse_proxy 10.99.0.30:4200
+
+	encode zstd gzip
+
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		-Server
+	}
+
+	log {
+		output file /var/log/design-access.log {
+			roll_size 100mb
+			roll_keep 10
+		}
+		format json
+	}
+}

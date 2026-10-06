@@ -1,6 +1,6 @@
 {
   "name": "byescaleira-visual-id",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Identidade visual byescaleira: tokens em JSON, CSS para a web e as regras para aplicar em qualquer projeto.",
   "type": "module",
   "license": "UNLICENSED",
