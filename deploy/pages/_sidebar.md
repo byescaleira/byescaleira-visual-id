@@ -1,0 +1,18 @@
+* [Início](/)
+* [A identidade em cinco regras](skills/byescaleira-visual-id/reference/principios.md)
+* Tokens
+  * [Tabela de tokens](skills/byescaleira-visual-id/reference/tokens.md)
+  * [Cor](skills/byescaleira-visual-id/reference/cor.md)
+  * [Tipografia](skills/byescaleira-visual-id/reference/tipografia.md)
+  * [Forma e espaço](skills/byescaleira-visual-id/reference/forma.md)
+  * [Marca](skills/byescaleira-visual-id/reference/marca.md)
+* Plataformas
+  * [Web](skills/byescaleira-visual-id/reference/web.md)
+  * [Apple](skills/byescaleira-visual-id/reference/apple.md)
+  * [Android](skills/byescaleira-visual-id/reference/android.md)
+  * [Windows](skills/byescaleira-visual-id/reference/windows.md)
+  * [Slides](skills/byescaleira-visual-id/reference/slides.md)
+* [Componentes](skills/byescaleira-visual-id/reference/componentes.md)
+* [Escrita](skills/byescaleira-visual-id/reference/escrita.md)
+* [Mudar a identidade](skills/byescaleira-visual-id/reference/mudar.md)
+* [Changelog](CHANGELOG.md)

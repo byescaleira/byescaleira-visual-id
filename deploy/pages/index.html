@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>byescaleira — identidade visual</title>
+  <meta name="description" content="A identidade visual byescaleira: tokens, regras e a documentação para aplicar em qualquer projeto.">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M21.5 11.2a6.5 6.5 0 1 0 0 9.6' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.2.2/dist/theme-simple.css">
+  <style>
+    :root {
+      --base-font-size: 16px;
+      --theme-color: #000;
+      --link-color: #000;
+      --link-color-hover: #000;
+    }
+  </style>
+</head>
+<body>
+  <div id="app"></div>
+  <script>
+    window.$docsify = {
+      name: 'byescaleira',
+      nameLink: '/',
+      repo: 'byescaleira/byescaleira-visual-id',
+      homepage: 'README.md',
+      loadSidebar: 'deploy/pages/_sidebar.md',
+      relativePath: true,
+      subMaxLevel: 3,
+      auto2top: true,
+      search: 'auto',
+      copyCode: { buttonText: 'copiar' },
+      executeScript: true,
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/emoji.min.js"></script>
+</body>
+</html>

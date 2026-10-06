@@ -1,0 +1,24 @@
+# design.byescaleira.com — identidade visual byescaleira (byescaleira-visual-id).
+# Site público de documentação (Docsify, zero build). A cópia deste bloco vive
+# no /etc/caddy/Caddyfile do VPS; atualizar lá e recarregar o Caddy.
+
+design.byescaleira.com {
+	root * /opt/design
+	try_files {path} /deploy/pages/index.html
+	file_server
+
+	encode zstd gzip
+
+	header {
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+	}
+
+	log {
+		output file /var/log/design-access.log {
+			roll_size 100mb
+			roll_keep 10
+		}
+		format json
+	}
+}
