@@ -1,0 +1,44 @@
+/* Gerado por scripts/build.mjs a partir de tokens/tokens.json. Não edite à mão.
+ *
+ * Tailwind v4: importe depois de tokens.css. As cores apontam para as variáveis, então o tema escuro funciona
+ * sozinho. Use bg-paper, text-ink, border-rule, text-warn, rounded-control… e nada fora destes nomes.
+ */
+@theme inline {
+  --color-*: initial;
+  --color-paper: var(--paper);
+  --color-surface: var(--surface);
+  --color-sunken: var(--sunken);
+  --color-ink: var(--ink);
+  --color-ink-muted: var(--ink-muted);
+  --color-ink-faint: var(--ink-faint);
+  --color-rule: var(--rule);
+  --color-rule-strong: var(--rule-strong);
+  --color-warn: var(--warn);
+  --color-warn-wash: var(--warn-wash);
+  --color-danger: var(--danger);
+  --color-danger-wash: var(--danger-wash);
+  --color-ok: var(--ok);
+  --color-ok-wash: var(--ok-wash);
+  --color-accent: var(--accent);
+  --color-accent-wash: var(--accent-wash);
+  --color-on-accent: var(--on-accent);
+  --color-focus: var(--focus);
+  --color-transparent: transparent;
+  --color-current: currentColor;
+
+  --font-*: initial;
+  --font-sans: var(--sans);
+  --font-serif: var(--serif);
+
+  --radius-*: initial;
+  --radius-control: var(--radius-control);
+  --radius-pill: var(--radius-pill);
+  --radius-row: var(--radius-row);
+  --radius-block: var(--radius-block);
+  --radius-inner: var(--radius-inner);
+
+  --shadow-*: initial;
+  --shadow-pop: var(--shadow-pop);
+
+  --spacing: 4px;
+}

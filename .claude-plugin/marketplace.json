@@ -1,0 +1,12 @@
+{
+  "name": "byescaleira-visual-id",
+  "owner": { "name": "Rafael Escaleira" },
+  "metadata": { "description": "A identidade visual byescaleira para o Claude Code." },
+  "plugins": [
+    {
+      "name": "byescaleira-visual-id",
+      "source": { "source": "github", "repo": "byescaleira/byescaleira-visual-id" },
+      "description": "Skill que aplica a identidade visual byescaleira em qualquer projeto: web, landing page, slides e apps nativos."
+    }
+  ]
+}

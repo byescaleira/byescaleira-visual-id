@@ -1,0 +1,110 @@
+/* Gerado por scripts/build.mjs a partir de tokens/tokens.json. Não edite à mão.
+ *
+ * Preto e branco. A cor só aparece quando informa: sinais (warn, danger, ok) e cores de dado, nunca decoração.
+ * Interação é tinta: accent, focus e on-accent apontam para ink e paper.
+ * Tema: segue prefers-color-scheme; data-theme="light" ou "dark" na raiz força um deles.
+ */
+:root {
+  --paper: #ffffff;
+  --surface: #ffffff;
+  --sunken: #f4f4f4;
+  --ink: #000000;
+  --ink-muted: #5c5c5c;
+  --ink-faint: #737373;
+  --rule: #e8e8e8;
+  --rule-strong: #cccccc;
+  --warn: #9e5700;
+  --warn-wash: #fff5e6;
+  --danger: #b3261e;
+  --danger-wash: #fdeceb;
+  --ok: #0b7a3f;
+  --ok-wash: #e9f6ee;
+
+  --accent: var(--ink);
+  --accent-wash: var(--sunken);
+  --on-accent: var(--paper);
+  --focus: var(--ink);
+
+  --sans: "Schibsted Grotesk Variable", "Schibsted Grotesk", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --serif: "Source Serif 4 Variable", "Source Serif 4", Georgia, "Times New Roman", serif;
+
+  --text-hero: clamp(3.5rem, 2.2rem + 5vw, 6.5rem);
+  --text-display: clamp(3.25rem, 1.6rem + 7.5vw, 8.5rem);
+  --text-headline: clamp(2rem, 1.2rem + 2.6vw, 3.5rem);
+  --text-xl: 1.75rem;
+  --text-lg: 1.4rem;
+  --text-md: 1.125rem;
+  --text-base: 0.9375rem;
+  --text-title: 0.9375rem;
+  --text-sm: 0.8125rem;
+  --text-xs: 0.75rem;
+  --text-brand: 1.05rem;
+  --text-reading: 1.125rem;
+  --text-excerpt: 0.8125rem;
+
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --radius-control: 999px;
+  --radius-pill: 999px;
+  --radius-row: 10px;
+  --radius-block: 14px;
+  --radius-inner: 8px;
+  --rule-width: 1px;
+  --data-rule-width: 3px;
+  --data-dot: 8px;
+  --shadow-pop: 0 24px 48px rgba(0, 0, 0, 0.12);
+  --motion-fast: 120ms ease;
+  --motion-pop: 140ms ease-out;
+  --motion-progress: 1300ms linear;
+  --motion-spin: 900ms linear;
+  --measure: 68ch;
+  --index-width: clamp(340px, 26vw, 540px);
+  --topbar-height: 52px;
+  --gutter-mobile: 16px;
+
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #000000;
+    --surface: #000000;
+    --sunken: #141414;
+    --ink: #ffffff;
+    --ink-muted: #a3a3a3;
+    --ink-faint: #8a8a8a;
+    --rule: #262626;
+    --rule-strong: #404040;
+    --warn: #f0b450;
+    --warn-wash: #2a1f0d;
+    --danger: #ff7a6b;
+    --danger-wash: #2c1210;
+    --ok: #4fbf7f;
+    --ok-wash: #0d2318;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --paper: #000000;
+  --surface: #000000;
+  --sunken: #141414;
+  --ink: #ffffff;
+  --ink-muted: #a3a3a3;
+  --ink-faint: #8a8a8a;
+  --rule: #262626;
+  --rule-strong: #404040;
+  --warn: #f0b450;
+  --warn-wash: #2a1f0d;
+  --danger: #ff7a6b;
+  --danger-wash: #2c1210;
+  --ok: #4fbf7f;
+  --ok-wash: #0d2318;
+  color-scheme: dark;
+}

@@ -1,0 +1,17 @@
+name: check
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  tokens:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Os arquivos gerados estão em dia com tokens/tokens.json e todo texto passa 4,5:1 de contraste.
+      - run: node scripts/build.mjs --check

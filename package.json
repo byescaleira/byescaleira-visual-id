@@ -1,0 +1,20 @@
+{
+  "name": "byescaleira-visual-id",
+  "version": "1.0.0",
+  "description": "Identidade visual byescaleira: tokens em JSON, CSS para a web e as regras para aplicar em qualquer projeto.",
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": { "type": "git", "url": "https://github.com/byescaleira/byescaleira-visual-id.git" },
+  "exports": {
+    "./tokens.json": "./tokens/tokens.json",
+    "./web/tokens.css": "./web/tokens.css",
+    "./web/tailwind.css": "./web/tailwind.css",
+    "./products/*": "./products/*"
+  },
+  "files": ["tokens", "web", "products", "README.md"],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "node scripts/build.mjs --check"
+  },
+  "engines": { "node": ">=20" }
+}

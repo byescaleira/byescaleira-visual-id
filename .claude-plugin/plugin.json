@@ -1,0 +1,9 @@
+{
+  "name": "byescaleira-visual-id",
+  "version": "1.0.0",
+  "description": "Skill que aplica a identidade visual byescaleira (preto e branco, a cor só quando informa) em web, landing page, slides e apps iOS, iPadOS, macOS, tvOS, Android e Windows, respeitando o nativo de cada plataforma.",
+  "author": { "name": "Rafael Escaleira" },
+  "homepage": "https://github.com/byescaleira/byescaleira-visual-id",
+  "repository": "https://github.com/byescaleira/byescaleira-visual-id",
+  "keywords": ["design system", "identidade visual", "tokens", "liquid glass", "material", "fluent", "slides"]
+}

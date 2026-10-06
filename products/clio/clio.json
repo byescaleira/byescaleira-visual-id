@@ -1,0 +1,32 @@
+{
+  "name": "CLIO",
+  "about": "Publicações judiciais → eventos de prazo na agenda, com aprovação. Primeiro produto da identidade visual byescaleira.",
+  "wordmark": "CLIO, no estilo brand (Schibsted Grotesk 700, -0,03em), em ink.",
+  "mark": "clio-mark.svg",
+  "markNote": "Quadrado ink de raio 8 em 32, com um \"C\" de traço em paper (3,4, pontas arredondadas). Só ícone de app e de aba.",
+  "expansion": ["Calendar", "&", "Legal", "Integration", "Operator"],
+  "language": "pt-BR",
+  "heroFormat": {
+    "pattern": "dd.mm",
+    "example": "28.09",
+    "usage": "A data como a equipe escreve em cada evento, no estilo hero, com o dia da semana e o mês ao lado em text-md. Clicar abre o calendário em popover; não há setas."
+  },
+  "dataColors": {
+    "source": "Cores de evento do Google Agenda (colorId).",
+    "meaning": "A pessoa da equipe que cuida do evento. Quem é cada cor é configuração de cada escritório, não do design system.",
+    "rule": "Só no fio de 3px ao lado da data do evento e no ponto de 8px ao lado do nome. Sempre com o nome escrito.",
+    "colors": [
+      { "colorId": "1", "name": "Lavanda", "value": "#7986cb" },
+      { "colorId": "2", "name": "Sálvia", "value": "#33b679" },
+      { "colorId": "3", "name": "Uva", "value": "#8e24aa" },
+      { "colorId": "4", "name": "Flamingo", "value": "#e67c73" },
+      { "colorId": "5", "name": "Banana", "value": "#f6bf26" },
+      { "colorId": "6", "name": "Tangerina", "value": "#f4511e" },
+      { "colorId": "7", "name": "Pavão", "value": "#039be5" },
+      { "colorId": "8", "name": "Grafite", "value": "#616161", "note": "Tarefa concluída. Nunca é cor de criação nem de pessoa." },
+      { "colorId": "9", "name": "Mirtilo", "value": "#3f51b5" },
+      { "colorId": "10", "name": "Manjericão", "value": "#0b8043" },
+      { "colorId": "11", "name": "Tomate", "value": "#d50000" }
+    ]
+  }
+}
