@@ -6,15 +6,13 @@
   <title>byescaleira — identidade visual</title>
   <meta name="description" content="A identidade visual byescaleira: tokens, regras e a documentação para aplicar em qualquer projeto.">
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23000'/%3E%3Cpath d='M21.5 11.2a6.5 6.5 0 1 0 0 9.6' fill='none' stroke='%23fff' stroke-width='3.4' stroke-linecap='round'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/docsify-themeable@0.2.2/dist/theme-simple.css">
-  <style>
-    :root {
-      --base-font-size: 16px;
-      --theme-color: #000;
-      --link-color: #000;
-      --link-color-hover: #000;
-    }
-  </style>
+  <!-- Tokens do próprio repo: a documentação renderizada com a identidade dela -->
+  <link rel="stylesheet" href="/web/tokens.css">
+  <!-- Base do Docsify (estrutura), depois o tema próprio por cima.
+       Caminhos ABSOLUTOS: a página vive em / (rewrite do Caddy); relativos
+       cairiam no fallback index.html e quebrariam como script/estilo. -->
+  <link rel="stylesheet" href="/deploy/pages/assets/docsify.css">
+  <link rel="stylesheet" href="/deploy/pages/assets/site.css">
 </head>
 <body>
   <div id="app"></div>
@@ -30,11 +28,10 @@
       auto2top: true,
       search: 'auto',
       copyCode: { buttonText: 'copiar' },
-      executeScript: true,
     };
   </script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/docsify.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/search.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/docsify@4.13.1/lib/plugins/emoji.min.js"></script>
+  <script src="/deploy/pages/assets/docsify.min.js"></script>
+  <script src="/deploy/pages/assets/search.min.js"></script>
+  <script src="/deploy/pages/assets/emoji.min.js"></script>
 </body>
 </html>
