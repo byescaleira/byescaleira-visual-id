@@ -28,6 +28,7 @@ São as cores que vêm do conteúdo, não do design: a cor de uma pessoa ou de u
 - **Sempre com o nome escrito ao lado.** Quem não distingue cores entende pelo texto.
 - **Nunca como fundo, texto ou botão.**
 - **A paleta é do produto,** não do design system: cada produto declara a sua no arquivo dele em `products/` (veja [Marca](marca.md)).
+- **Uma cor por tema, quando precisar.** A cor de dado que o próprio produto escolhe (não a que vem de fora, como a do Google Agenda) tem 3:1 sobre `paper` nos dois temas, com `dark` para o escuro.
 
 ## Datas especiais
 

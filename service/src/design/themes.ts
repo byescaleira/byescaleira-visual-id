@@ -134,7 +134,13 @@ export function resolveTheme(ds: DesignSystem, query: ThemeQuery): Theme {
       : null,
     season,
     color,
-    dataColors: (product?.dataColors?.colors ?? []).map((c) => ({ name: c.name, token: `data-${slugify(c.name)}`, value: c.value, note: c.note })),
+    // No tema escuro, vale a cor `dark` do produto quando ela existe.
+    dataColors: (product?.dataColors?.colors ?? []).map((c) => ({
+      name: c.name,
+      token: `data-${slugify(c.name)}`,
+      value: mode === "dark" && c.dark ? c.dark : c.value,
+      note: c.note,
+    })),
     type: { families: { sans: t.type.families.sans.web, serif: t.type.families.serif.web }, styles },
     space: Object.fromEntries(t.space.map((s) => [s.name, s.value])),
     radius: Object.fromEntries(t.radius.map((r) => [r.name, r.value])),

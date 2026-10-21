@@ -122,7 +122,9 @@ export function createMcpServer(ds: DesignSystem, now: () => Date = () => new Da
         }
         for (const s of ds.tokens.seasons.list) for (const m of ["light", "dark"] as const) if (s[m] === hex) hits.push(`season ${s.id} (${m}): só no fio do topo e no ponto da data`);
         for (const p of ds.products.values())
-          for (const c of p.dataColors?.colors ?? []) if (c.value.toLowerCase() === hex) hits.push(`cor de dado ${c.name} do produto ${p.id}: só fio de 3px ou ponto de 8px, com o nome ao lado`);
+          for (const c of p.dataColors?.colors ?? [])
+            if (c.value.toLowerCase() === hex || c.dark?.toLowerCase() === hex)
+              hits.push(`cor de dado ${c.name} do produto ${p.id}: só fio de 3px ou ponto de 8px, com o nome ao lado`);
         return text(hits.length ? `${hex} é: ${[...new Set(hits)].join("; ")}.` : `${hex} não está no design system. Use um token de cor (design_theme) ou proponha a mudança no repositório.`);
       }
       const m = /^(\d+(?:\.\d+)?)(px|rem)?$/.exec(value.trim());

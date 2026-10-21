@@ -1,5 +1,10 @@
 # Mudanças
 
+## 1.2.0
+
+- **Produto ERATO** em `products/erato/`: nome, sigla por extenso, a data do último andamento em destaque (`dd.mm`) e as cores de dado das fases do pedido de pagamento (peticionar, peticionado, expedido, pago, ao final, metade ao final), tiradas do código de cor das planilhas de cobrança. Agilizar fica em negrito e autos no tribunal em itálico, sem cor.
+- **Cor de dado por tema:** cada cor pode ter `dark`, usada no tema escuro (temas da API e conector). Regra em [cor.md](skills/byescaleira-visual-id/reference/cor.md#cores-de-dado) e campo em [marca.md](skills/byescaleira-visual-id/reference/marca.md).
+
 ## 1.1.0
 
 - **Datas especiais** (`seasons` no `tokens.json`): Ano-novo, Carnaval, Páscoa, Festa junina, Dia da Advocacia, Independência, Dia das Crianças e Natal. A cor da data aparece só no fio de 3px no topo e no ponto com o nome da data; a interação continua tinta. Regra nova em [datas.md](skills/byescaleira-visual-id/reference/datas.md), na regra 3 da `SKILL.md`, em princípios e em cor. O build confere 4,5:1 de cada cor sobre o papel e o formato de cada período.

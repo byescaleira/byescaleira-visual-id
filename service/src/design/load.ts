@@ -78,7 +78,8 @@ export interface Product {
   expansion?: string[];
   language?: string;
   heroFormat?: { pattern: string; example: string; usage: string };
-  dataColors?: { source?: string; meaning?: string; rule?: string; colors: { colorId?: string; name: string; value: string; note?: string }[] };
+  /** `value` é a cor no tema claro; `dark`, quando existe, a do tema escuro. */
+  dataColors?: { source?: string; meaning?: string; rule?: string; colors: { colorId?: string; name: string; value: string; dark?: string; note?: string }[] };
   /** O SVG do símbolo, lido de products/<id>/. */
   markSvg: string | null;
 }

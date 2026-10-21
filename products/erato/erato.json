@@ -1,0 +1,25 @@
+{
+  "name": "ERATO",
+  "about": "Acompanhamento da cobrança de honorários de perícia: os processos, os andamentos e o status de cada um, com o histórico de quem mudou o quê.",
+  "wordmark": "ERATO, no estilo brand (Schibsted Grotesk 700, -0,03em), em ink.",
+  "expansion": ["Expert", "Report", "And", "Tracking", "Operator"],
+  "language": "pt-BR",
+  "heroFormat": {
+    "pattern": "dd.mm",
+    "example": "29.09",
+    "usage": "A data do último andamento de cada processo, ao lado da linha, com o ano embaixo em text-xs. Sem andamento, a data do status."
+  },
+  "dataColors": {
+    "source": "O código de cor das planilhas de cobrança que as equipes já usam.",
+    "meaning": "A fase do pedido de pagamento. Qual status do escritório usa qual cor é configuração do produto, não do design system.",
+    "rule": "Só no fio de 3px ao lado da data do processo e no ponto de 8px ao lado do status. Sempre com o status escrito. Agilizar é negrito e autos no tribunal é itálico, sem cor; número errado usa danger. Contraste mínimo de 3:1 sobre paper nos dois temas.",
+    "colors": [
+      { "name": "Peticionar", "value": "#2e7d32", "dark": "#6fcf7f", "note": "O pedido precisa ser feito pelo escritório. Verde da planilha." },
+      { "name": "Peticionado", "value": "#1565c0", "dark": "#7fb0f5", "note": "O pedido foi protocolado e aguarda o juízo. Azul da planilha." },
+      { "name": "Expedido", "value": "#b26a00", "dark": "#f0a24a", "note": "Alvará ou ofício expedido, aguardando o pagamento. Amarelo opaco da planilha." },
+      { "name": "Pago", "value": "#a67c00", "dark": "#e8c547", "note": "Alvará ou ofício pago. Amarelo vibrante da planilha, escurecido para ter 3:1 sobre paper." },
+      { "name": "Ao final", "value": "#795548", "dark": "#c4a493", "note": "Os honorários vêm ao final, por cumprimento de sentença ou RPV. Marrom da planilha." },
+      { "name": "Metade ao final", "value": "#c2185b", "dark": "#f080b0", "note": "Metade no depósito e metade ao final, decidido pelo juiz. Rosa da planilha." }
+    ]
+  }
+}

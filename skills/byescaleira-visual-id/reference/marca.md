@@ -24,7 +24,7 @@ Cada produto tem um arquivo em `products/<produto>/<produto>.json` com:
 | `wordmark` | A marca escrita: o nome no estilo `brand` (Schibsted Grotesk 700, -0,03em) em `ink`. Não há logotipo desenhado |
 | `mark` | O símbolo, só para ícone de app e de aba do navegador (SVG em `products/<produto>/`) |
 | `expansion` | A sigla por extenso, se houver |
-| `dataColors` | A paleta de cores de dado do produto, se houver (ex.: as cores de pessoa de uma agenda) |
+| `dataColors` | A paleta de cores de dado do produto, se houver (ex.: as cores de pessoa de uma agenda). Cada cor tem `value` (tema claro) e, se precisar, `dark` (tema escuro) |
 | `heroFormat` | Como o produto escreve a peça de destaque (ex.: a data em `dd.mm`) |
 | `language` | A língua da interface |
 
